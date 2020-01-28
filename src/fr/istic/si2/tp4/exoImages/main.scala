@@ -112,16 +112,29 @@ object ExosImages extends App {
       case _ => beside(guirlande(n - 1), beside(boule_rouge, boule_noire))
     }
   }
-  draw(guirlande(0))
-  draw(guirlande(1))
-  draw(guirlande(2))
-  draw(guirlande(3))
+
+  //  draw(guirlande(0))
+  //  draw(guirlande(1))
+  //  draw(guirlande(2))
+  //  draw(guirlande(3))
 
   /**
    * @param n un entier positif ou nul
    * @return image d'une guirlande horizontale de n boules de couleurs, en alternant boules rouges et noires, en commençant par une boule rouge
    */
-  // TODO  
-  def guirlandeBis(n: Int): Image = ???
+  def guirlandeBis(n: Int): Image = {
+    n match {
+      case 0 => Empty
+      case 1 => boule_rouge
+      case value => beside(guirlandeBis(n - 1), value % 2 match {
+        case 0 => boule_noire
+        case _ => boule_rouge
+      })
+    }
+  }
+
+
+  draw(guirlandeBis(5))
+
 
 }
