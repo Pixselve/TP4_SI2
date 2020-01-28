@@ -37,7 +37,6 @@ object ExosCalculs extends App {
    *
    * @param n un entier positif ou nul
    */
-  // TODO 
   def countDown(n: Int): Unit = {
     n match {
       case 0 => println("Time OUT !")
